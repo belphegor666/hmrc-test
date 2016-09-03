@@ -20,28 +20,28 @@ public class TestShop {
 		assertEquals(0.60d, shop.checkout(items), 0.01d);
 	}
 	
-	// two apples costs £1.20
+	// two apples costs 60p with bogof
 	@Test
 	public void testTwoApples() throws Exception {
 		List<String> items = Arrays.asList("apple","apple");
 		Shop shop = new Shop();
-		assertEquals(1.20d, shop.checkout(items), 0.01d);
+		assertEquals(0.60d, shop.checkout(items), 0.01d);
 	}
 	
-	// three apples costs £1.80
+	// three apples costs £1.20 with bogof
 	@Test
 	public void testThreeApples() throws Exception {
 		List<String> items = Arrays.asList("apple","apple","apple");
 		Shop shop = new Shop();
-		assertEquals(1.80d, shop.checkout(items), 0.01d);
+		assertEquals(1.20d, shop.checkout(items), 0.01d);
 	}	
 	
-	// ten apples costs £6.00
+	// ten apples costs £3.00 with bogof
 	@Test
 	public void testTenApples() throws Exception {
 		List<String> items = Arrays.asList("apple","apple","apple","apple","apple","apple","apple","apple","apple","apple");
 		Shop shop = new Shop();
-		assertEquals(6.00d, shop.checkout(items), 0.01d);
+		assertEquals(3.00d, shop.checkout(items), 0.01d);
 	}
 	
 	// one orange costs 25p
@@ -60,20 +60,20 @@ public class TestShop {
 		assertEquals(0.50d, shop.checkout(items), 0.01d);
 	}
 	
-	// three oranges costs 75p
+	// three oranges costs 50p with 3-for-2
 	@Test
 	public void testThreeOranges() throws Exception {
 		List<String> items = Arrays.asList("orange","orange","orange");
 		Shop shop = new Shop();
-		assertEquals(0.75d, shop.checkout(items), 0.01d);
+		assertEquals(0.50d, shop.checkout(items), 0.01d);
 	}	
 	
-	// ten oranges costs £2.50
+	// ten oranges costs £1.75 with 3-for-2
 	@Test
 	public void testTenOranges() throws Exception {
 		List<String> items = Arrays.asList("orange","orange","orange","orange","orange","orange","orange","orange","orange","orange");
 		Shop shop = new Shop();
-		assertEquals(2.50d, shop.checkout(items), 0.01d);
+		assertEquals(1.75d, shop.checkout(items), 0.01d);
 	}
 	
 	// an unknown item will throw an exception
@@ -110,19 +110,19 @@ public class TestShop {
 		assertEquals(1.10d, shop.checkout(items), 0.01d);
 	}
 	
-	// three apples and one orange costs £2.05
+	// three apples and one orange costs £1.45 with bogof for apples
 	@Test
 	public void testThreeApplesOneOrange() throws Exception {
 		List<String> items = Arrays.asList("apple","apple","orange","apple");
 		Shop shop = new Shop();
-		assertEquals(2.05d, shop.checkout(items), 0.01d);
+		assertEquals(1.45d, shop.checkout(items), 0.01d);
 	}
 	
-	// three apples and five oranges costs £3.05
+	// three apples and five oranges costs £2.20 with bogof for apples and 3-for-2 on oranges
 	@Test
 	public void testThreeApplesFiveOranges() throws Exception {
 		List<String> items = Arrays.asList("apple","apple","orange","orange","apple","orange","orange","orange");
 		Shop shop = new Shop();
-		assertEquals(3.05d, shop.checkout(items), 0.01d);
+		assertEquals(2.20d, shop.checkout(items), 0.01d);
 	}
 }
